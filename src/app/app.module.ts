@@ -1,14 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
+import { CourseModule } from './courses/course.module';
+import { RouterModule } from '@angular/router';
+import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CourseModule,
+    CoreModule,
+    RouterModule.forRoot([
+      {
+        path: '', redirectTo: 'courses', pathMatch: 'full'
+      }
+    ]),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
